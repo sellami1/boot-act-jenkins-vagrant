@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.define = "web-cv"
+  config.vm.define "web-cv"
 
   # Use a Debian box compatible with the libvirt provider
   config.vm.box = "generic/alpine318"
