@@ -2,14 +2,14 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
+  config.vm.define = "web-cv"
+
   # Use a Debian box compatible with the libvirt provider
   config.vm.box = "generic/alpine318"
   config.vm.network "private_network", ip: "192.168.56.10"
 
   # Configure the libvirt (KVM) provider
   config.vm.provider :libvirt do |libvirt|
-    libvirt.vm_name = "web-cv"
-
     # Allocate 1 GB of RAM (value is in MB)
     libvirt.memory = 1024
 
