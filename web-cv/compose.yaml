@@ -2,7 +2,7 @@ services:
   web-cv:
     build: .
     image: web-cv:1.0
-    container_name: web-cv
+    container_name: web-cv-compose
     ports:
       - "8080:80"
     restart: unless-stopped
