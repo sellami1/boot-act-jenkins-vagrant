@@ -12,6 +12,79 @@
 
 ---
 
+# 13. Dockeriser le projet web-cv avec nginx
+
+Le projet est un site statique HTML, CSS et JavaScript. Le fichier `web-cv/Dockerfile` utilise l'image légère `nginx:alpine` et copie les fichiers du site dans le répertoire servi par nginx, `/usr/share/nginx/html/`. Le site est donc disponible sur le port `80` du conteneur.
+
+Depuis le dossier contenant le Dockerfile :
+
+```bash
+cd web-cv
+```
+
+### Capture d'écran — Dockerfile
+
+<!-- Remplacer ce placeholder par une capture du fichier web-cv/Dockerfile. -->
+![Capture à ajouter : Dockerfile nginx](screenshots/dockerfile-placeholder.png)
+
+---
+
+# 12. Créer une image Docker du projet
+
+Depuis `web-cv/web-cv`, construire l'image puis lancer un conteneur :
+
+```bash
+docker build -t web-cv:1.0 .
+docker run -d --name web-cv -p 8080:80 web-cv:1.0
+```
+
+L'option `-t` attribue le nom et la version `web-cv:1.0` à l'image. Le port `8080` de la machine est redirigé vers le port `80` servi par nginx dans le conteneur. Le site est accessible à l'adresse `http://localhost:8080`.
+
+Pour arrêter et supprimer le conteneur après le test :
+
+```bash
+docker stop web-cv
+docker rm web-cv
+```
+
+### Capture d'écran — Commandes de création et lancement de l'image
+
+<!-- Remplacer ce placeholder par une capture des commandes et de leur résultat. -->
+![Capture à ajouter : commandes Docker pour créer et lancer l'image](screenshots/docker-image-commands-placeholder.png)
+
+---
+
+# 11. Lancer le projet avec Docker Compose
+
+Le fichier `web-cv/compose.yaml` décrit la construction de la même image et la redirection du port `8080` vers le port `80` du conteneur. Depuis le dossier `web-cv/web-cv`, exécuter :
+
+Si le conteneur lancé directement à l'étape 12 existe encore, le supprimer avant de démarrer Compose, car les deux configurations utilisent le nom `web-cv` :
+
+```bash
+docker stop web-cv
+docker rm web-cv
+```
+
+Puis lancer Compose :
+
+```bash
+docker compose up -d --build
+docker compose ps
+```
+
+L'option `--build` construit l'image à partir du Dockerfile avant le démarrage. La commande `ps` permet de vérifier l'état du service. Le site est accessible à l'adresse `http://localhost:8080`. Pour arrêter et supprimer le conteneur créé par Compose :
+
+```bash
+docker compose down
+```
+
+### Capture d'écran — Commandes Docker Compose
+
+<!-- Remplacer ce placeholder par une capture des commandes Compose et de leur résultat. -->
+![Capture à ajouter : commandes Docker Compose](screenshots/docker-compose-commands-placeholder.png)
+
+---
+
 # 10. Évolution du mini-CV vers DevSecOps Portfolio
 ## 10.1. New Website State
 ![Part 1](screenshots/new0.png)
