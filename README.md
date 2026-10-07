@@ -12,6 +12,11 @@
 
 ---
 
+# 14. Première introduction à l'automatisation (Vagrant)
+![Capture à ajouter : Vagrantfile](screenshots/vagfile.png)
+![Capture à ajouter : Vagrant up result](screenshots/vagup.png)
+
+
 # 13. Dockeriser le projet web-cv avec nginx
 
 Le projet est un site statique HTML, CSS et JavaScript. Le fichier `web-cv/Dockerfile` utilise l'image légère `nginx:alpine` et copie les fichiers du site dans le répertoire servi par nginx, `/usr/share/nginx/html/`. Le site est donc disponible sur le port `80` du conteneur.
