@@ -12,6 +12,16 @@
 
 ---
 
+# 10. Évolution du mini-CV vers DevSecOps Portfolio
+## 10.1. New Website State
+![Part 1](screenshots/new0.png)
+![Part 2](screenshots/new1.png)
+
+## 10.2. JavaScript Projects Section
+![Projects JS Section](screenshots/js-snippet.png)
+
+---
+
 # 1. Installation de Debian13 6.12 et configuration de SSH
 
 ## Installation de la VM (KVM)
