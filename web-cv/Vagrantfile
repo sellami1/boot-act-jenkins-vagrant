@@ -1,0 +1,20 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  # Use a Debian box compatible with the libvirt provider
+  config.vm.box = "generic/alpine318"
+
+  # Configure the libvirt (KVM) provider
+  config.vm.provider :libvirt do |libvirt|
+    # Allocate 4 GB of RAM (value is in MB)
+    libvirt.memory = 1024
+
+    # Allocate 2 virtual CPUs
+    libvirt.cpus = 1
+
+    # Set the primary disk size to 40 GB
+    # This overrides the default size from the box.
+    libvirt.machine_virtual_size = 10
+  end
+end
